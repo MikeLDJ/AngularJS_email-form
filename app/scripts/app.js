@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'moment-picker'
   ])
   .config(function ($routeProvider) {
     $routeProvider

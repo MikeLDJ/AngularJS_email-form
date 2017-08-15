@@ -1,23 +1,118 @@
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <form name="contactForm" class="form-horizontal" novalidate>
+    <div class="form-group">
+      <label for="inputRecipent" class="col-sm-3 control-label">Recipient Name</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          id="inputRecipent"
+          placeholder="Name"
+          ng-model="form.recipientName"
+          ng-required="true"
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputRemail" class="col-sm-3 control-label">Recipent Email</label>
+      <div class="col-sm-9">
+        <input
+          type="email"
+          class="form-control"
+          id="inputRemail"
+          placeholder="Email"
+          ng-model="form.recipientEmail"
+          ng-required="true"
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputTitle" class="col-sm-3 control-label">Title</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          id="inputTitle"
+          placeholder="Title"
+          ng-model="form.title"
+          ng-required="true"
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputMessage" class="col-sm-3 control-label">Message</label>
+      <div class="col-sm-9">
+        <textarea
+          class="form-control"
+          id="inputMessage"
+          rows="3"
+          ng-model="form.text"
+          ng-required="true"
+        ></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <div class="input-group col-xs-12"
+          moment-picker="ctrl.datepicker"
+          format="YYYY-MM-DD"
+          >
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </span>
+          <input class="form-control"
+            placeholder="Select a date"
+            ng-model="ctrl.datepicker"
+            ng-model-options="{ updateOn: 'blur' }"
+            ng-required="true"
+          >
+        </div>
+        <div class="input-group col-xs-12"
+          moment-picker="ctrl.timepicker"
+          format="HH:mm:ss"
+          >
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-time"></i>
+          </span>
+          <input class="form-control"
+            placeholder="Select a time"
+            ng-model="ctrl.timepicker"
+            ng-model-options="{ updateOn: 'blur' }"
+            ng-required="true"
+          >
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputSender" class="col-sm-3 control-label">Sender Name</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          id="inputSender"
+          placeholder="Name"
+          ng-model="form.senderName"
+          ng-required="true"
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputSender" class="col-sm-3 control-label">Sender Email</label>
+      <div class="col-sm-9">
+        <input
+          type="email"
+          class="form-control"
+          id="inputSender"
+          placeholder="Email"
+          ng-model="form.senderEmail"
+          ng-required="true"
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <button type="submit" class="btn btn-default">Send...</button>
+      </div>
+    </div>
+  </form>
 </div>
