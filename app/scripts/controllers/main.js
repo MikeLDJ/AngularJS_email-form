@@ -14,4 +14,8 @@ angular.module('formApp')
       'AngularJS',
       'Karma'
     ];
-  });
+  })
+  .controller('DateController', ['$scope', function() {
+    let ctrl = this;
+    ctrl.minDateString = moment().subtract(12, 'hours').format('YYYY-MM-DD');
+  }]);
