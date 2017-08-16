@@ -2,116 +2,260 @@
   <form name="contactForm" class="form-horizontal" novalidate>
     <div class="form-group">
       <label for="inputRecipent" class="col-sm-3 control-label">Recipient Name</label>
-      <div class="col-sm-9">
+      <div
+        class="input-group col-sm-9"
+        ng-class="{
+          'has-success' : contactForm.recipientName.$touched && contactForm.recipientName.$valid,
+          'has-error' : contactForm.recipientName.$touched && contactForm.recipientName.$invalid
+        }"
+      >
         <input
           type="text"
           class="form-control"
+          name="recipientName"
           id="inputRecipent"
-          placeholder="Name"
+          placeholder="max. 200 characters"
+          ng-maxlength="2"
           ng-model="form.recipientName"
           ng-required="true"
         >
+        <span
+           class="glyphicon glyphicon-remove form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.recipientName.$touched && contactForm.recipientName.$invalid">
+         </span>
+        <span
+           class="glyphicon glyphicon-ok form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.recipientName.$touched && contactForm.recipientName.$valid">
+         </span>
       </div>
     </div>
     <div class="form-group">
       <label for="inputRemail" class="col-sm-3 control-label">Recipent Email</label>
-      <div class="col-sm-9">
+      <div
+        class="input-group col-sm-9"
+        ng-class="{
+          'has-success' : contactForm.recipientEmail.$touched && contactForm.recipientEmail.$valid,
+          'has-error' : contactForm.recipientEmail.$touched && contactForm.recipientEmail.$invalid
+        }"
+      >
         <input
           type="email"
           class="form-control"
+          name="recipientEmail"
           id="inputRemail"
-          placeholder="Email"
+          placeholder="valid e-mail"
           ng-model="form.recipientEmail"
           ng-required="true"
         >
+        <span
+          class="glyphicon glyphicon-remove form-control-feedback"
+          aria-hidden="true"
+          ng-show="contactForm.recipientEmail.$touched && contactForm.recipientEmail.$invalid">
+        </span>
+        <span
+          class="glyphicon glyphicon-ok form-control-feedback"
+          aria-hidden="true"
+          ng-show="contactForm.recipientEmail.$touched && contactForm.recipientEmail.$valid">
+        </span>
       </div>
     </div>
     <div class="form-group">
       <label for="inputTitle" class="col-sm-3 control-label">Title</label>
-      <div class="col-sm-9">
+      <div
+        class="input-group col-sm-9"
+        ng-class="{
+          'has-success' : contactForm.title.$touched && contactForm.title.$valid,
+          'has-error' : contactForm.title.$touched && contactForm.title.$invalid
+        }"
+      >
         <input
           type="text"
           class="form-control"
           id="inputTitle"
-          placeholder="Title"
+          name="title"
+          placeholder="max. 200 characters"
+          ng-maxlength="200"
           ng-model="form.title"
           ng-required="true"
         >
+        <span
+           class="glyphicon glyphicon-remove form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.title.$touched && contactForm.title.$invalid">
+         </span>
+        <span
+           class="glyphicon glyphicon-ok form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.title.$touched && contactForm.title.$valid">
+         </span>
       </div>
     </div>
     <div class="form-group">
       <label for="inputMessage" class="col-sm-3 control-label">Message</label>
-      <div class="col-sm-9">
+      <div
+        class="input-group col-sm-9"
+        ng-class="{
+          'has-success' : contactForm.text.$touched && contactForm.text.$valid,
+          'has-error' : contactForm.text.$touched && contactForm.text.$invalid
+        }"
+      >
         <textarea
           class="form-control"
+          type="text"
           id="inputMessage"
+          name="text"
           rows="3"
+          placeholder="max. 2000 characters"
+          ng-maxlength="2000"
           ng-model="form.text"
           ng-required="true"
         ></textarea>
+        <span
+           class="glyphicon glyphicon-remove form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.text.$touched && contactForm.text.$invalid">
+         </span>
+        <span
+           class="glyphicon glyphicon-ok form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.text.$touched && contactForm.text.$valid">
+         </span>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
-        <div class="input-group col-xs-12"
-          moment-picker="ctrl.datepicker"
-          format="YYYY-MM-DD"
+        <div class="row">
+          <div class="input-group col-xs-12"
+            moment-picker="ctrl.datepicker"
+            format="YYYY-MM-DD"
+            ng-class="{
+              'has-success' : contactForm.datepicker.$touched && contactForm.datepicker.$valid,
+              'has-error' : contactForm.datepicker.$touched && contactForm.datepicker.$invalid
+            }"
           >
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-calendar"></i>
           </span>
           <input class="form-control"
+            name="datepicker"
             placeholder="Select a date"
             ng-model="ctrl.datepicker"
             ng-model-options="{ updateOn: 'blur' }"
             ng-required="true"
           >
+          <span
+             class="glyphicon glyphicon-remove form-control-feedback"
+             aria-hidden="true"
+             ng-show="contactForm.datepicker.$touched && contactForm.datepicker.$invalid">
+           </span>
+          <span
+             class="glyphicon glyphicon-ok form-control-feedback"
+             aria-hidden="true"
+             ng-show="contactForm.datepicker.$touched && contactForm.datepicker.$valid">
+           </span>
         </div>
         <div class="input-group col-xs-12"
           moment-picker="ctrl.timepicker"
           format="HH:mm:ss"
-          >
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-time"></i>
-          </span>
-          <input class="form-control"
-            placeholder="Select a time"
-            ng-model="ctrl.timepicker"
-            ng-model-options="{ updateOn: 'blur' }"
-            ng-required="true"
-          >
+          ng-class="{
+            'has-success' : contactForm.timepicker.$touched && contactForm.timepicker.$valid,
+            'has-error' : contactForm.timepicker.$touched && contactForm.timepicker.$invalid
+          }"
+        >
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-time"></i>
+        </span>
+        <input class="form-control"
+          name="timepicker"
+          placeholder="Select a time"
+          ng-model="ctrl.timepicker"
+          ng-model-options="{ updateOn: 'blur' }"
+          ng-required="true"
+        >
+        <span
+           class="glyphicon glyphicon-remove form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.timepicker.$touched && contactForm.timepicker.$invalid">
+         </span>
+        <span
+           class="glyphicon glyphicon-ok form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.timepicker.$touched && contactForm.timepicker.$valid">
+         </span>
+      </div>
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="inputSender" class="col-sm-3 control-label">Sender Name</label>
-      <div class="col-sm-9">
+      <div
+        class="input-group col-sm-9"
+        ng-class="{
+          'has-success' : contactForm.senderName.$touched && contactForm.senderName.$valid,
+          'has-error' : contactForm.senderName.$touched && contactForm.senderName.$invalid
+        }"
+      >
         <input
           type="text"
           class="form-control"
           id="inputSender"
-          placeholder="Name"
+          name="senderName"
+          placeholder="max. 200 characters"
+          ng-maxlength="200"
           ng-model="form.senderName"
           ng-required="true"
         >
+        <span
+           class="glyphicon glyphicon-remove form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.senderName.$touched && contactForm.senderName.$invalid">
+         </span>
+        <span
+           class="glyphicon glyphicon-ok form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.senderName.$touched && contactForm.senderName.$valid">
+         </span>
       </div>
     </div>
     <div class="form-group">
       <label for="inputSender" class="col-sm-3 control-label">Sender Email</label>
-      <div class="col-sm-9">
+      <div
+        class="input-group col-sm-9"
+        ng-class="{
+          'has-success' : contactForm.senderEmail.$touched && contactForm.senderEmail.$valid,
+          'has-error' : contactForm.senderEmail.$touched && contactForm.senderEmail.$invalid
+        }"
+      >
         <input
           type="email"
           class="form-control"
           id="inputSender"
-          placeholder="Email"
+          name="senderEmail"
+          placeholder="valid e-mail"
           ng-model="form.senderEmail"
           ng-required="true"
         >
+        <span
+           class="glyphicon glyphicon-remove form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.senderEmail.$touched && contactForm.senderEmail.$invalid">
+         </span>
+        <span
+           class="glyphicon glyphicon-ok form-control-feedback"
+           aria-hidden="true"
+           ng-show="contactForm.senderEmail.$touched && contactForm.senderEmail.$valid">
+         </span>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
-        <button type="submit" class="btn btn-default">Send...</button>
+        <button
+          type="submit"
+          class="btn btn-default"
+          ng-disabled="contactForm.$invalid"
+        >Send...</button>
       </div>
     </div>
   </form>
